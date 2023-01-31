@@ -1,0 +1,23 @@
+.paper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 90px;
+    /* background-color: black; */
+
+}
+.Subjectfull {
+
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    border: 1px solid wheat;
+    /* margin-bottom: 30px; */
+    background-image: url('/assest/book4.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: antiquewhite;
+}

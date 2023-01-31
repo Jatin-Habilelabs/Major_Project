@@ -1,0 +1,12 @@
+let arr=[
+    {
+        question:"what is the capital of india",
+        options:["delhi","chandigarh","punjab","lucknow"],
+        correct:2
+    },
+
+
+
+]
+let element=JSon.parse(arr);
+log

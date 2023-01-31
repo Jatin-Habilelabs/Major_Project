@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register_Page</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="register_container">
+        <div class="login_image">
+            <div class="background_image">
+                <div class="image_back">
+
+                </div>
+            </div>
+            <div class="image_text">
+                <h1 style="color: black;">One Of Us? </h1>
+                <p style="color: rgb(234, 232, 247);"> If you already have an account, just<br> sign in. We've missed
+                    you!
+                </p>
+                <button type="submit" id="button_sign-in" onclick="window.location.href='./login.html';">Sign
+                    In</button>
+            </div>
+        </div>
+        <form method="post" id="form" onsubmit="getOutput(event)">
+
+            <div class="register_form">
+                <h1 class="main_heading">Create Free Account</h1>
+                <p>
+                    Sign up using social networks</p>
+                <ul>
+                    <li><a href="https://www.facebook.com"><i class="bx bxl-facebook"></i></a></li>
+                    <li><a href="https://www.google.com"><i class='bx bxl-google-plus'></i></a></li>
+                    <li><a href="https://www.linkedin.com"><i class='bx bxl-linkedin'></i></a></li>
+                </ul>
+
+                <p>--------------------------- or ----------------------------</p>
+                <div class="form_data">
+                    <div class="form_box">
+                        <i class='bx bx-user icon'></i>
+                        <input type="text" placeholder="Name" name="username" class="input">
+                    </div>
+                    <div class="form_box">
+                        <i class='bx bx-phone icon'></i>
+                        <input type="tel" placeholder="Phone No" class="input" name="phoneNo">
+                    </div>
+
+                    <div class="form_box">
+                        <i class='bx bx-envelope icon'></i>
+                        <input type="email" placeholder="Email" class="input" name="email">
+                    </div>
+                    <div class="form_box">
+                        <i class='bx bxs-key icon'></i>
+                        <input type="password" placeholder="Password" class="input" id="password" name="password">
+                        <i class='bx bx-show eye' id="eye"></i>
+                    </div>
+                    <!-- <div class="form_box">
+                        <i class='bx bxs-key icon'></i>
+                        <input type="password" placeholder="Password" class="input">
+                        <i class='bx bx-show eye' id="eye"></i>
+                    </div> -->
+
+
+                    <div class="form_box" id="radio_input">
+                        <div>
+                            <input type="checkbox" class="radio" id="teacher" value="teacher">
+
+                            <label for="teacher">Teacher</label>
+                        </div>
+                        <input type="text" placeholder="Teacher_ID" class="teacher_id" id="teacher_data"
+                            name="teacher_data">
+
+
+                    </div>
+
+                    <div class="">
+
+                        <button type="submit">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>

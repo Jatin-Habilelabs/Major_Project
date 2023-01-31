@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View_Paper</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/view_paper.css" />
+</head>
+
+<body>
+    <div id="paper_data">
+        <div class="paper_name">
+            <label for="paperName">Subject Name</label>
+            <input type="text" name="paperName" id="paperName">
+            <!-- <p id="paperName"></p> -->
+        </div>
+        <form method="post" id="form" onsubmit="getAllData(event)">
+            <div id="question_paper">
+    
+            </div>
+            <div class="btn">
+                <button type="submit" id="submit_btn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="./js/view_paper.js"></script>
+</body>
+
+</html>

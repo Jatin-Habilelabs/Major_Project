@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto Slab", serif;
+}
+
+#paperName {
+    width: 500px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#paperName[type="text"] {
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+.paper_name {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#paper_data {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(219, 203, 203);
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#add_question,
+#submit_btn {
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.question {
+    width: 100%;
+}
+
+.ques {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.ans {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 15px 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+h4 {
+    text-align: center;
+    color: rgb(250, 244, 244);
+    font-size: 25px;
+}
+
+
+
+#question_paper {
+    width: 100%;
+    border: 1px solid;
+}
+
+#add_options {
+    width: 115px;
+    height: 40px;
+    border-radius: 15px;
+}
+
+.inputOption {
+    width: 250px;
+    height: 30px;
+    margin: 5px 230px;
+    border-radius: 5px;
+}
+
+.textQue {
+    width: 70rem;
+    height: 50px;
+    border-radius: 10px;
+    background-color: bisque;
+    font-size: 20px;
+}
+
+button {
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+}
