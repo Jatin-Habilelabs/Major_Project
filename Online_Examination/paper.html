@@ -7,26 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add_Paper</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/css/paper.css" />
+    <link rel="stylesheet" href="./css/paper.css" />
 </head>
 
 <body>
     <div id="paper_data">
         
         <form method="post" id="form" onsubmit="putData(event)">
+           <div>
             <div class="paper_name">
-                <label for="paperName" id="subName">Subject Name</label>
+                <label for="paperName" id="subName">Subject </label>
                 <input type="text" name="paperName" id="paperName">
             </div>
             
             <div id="question_paper">
                 
             </div>
+           </div>
             <div class="btn">
                 <button type="button" id="add_question" onclick="addQuestions()">
                     Add Question
                 </button>
-                <button type="submit " id="submit_btn">Submit</button>
+                <button type="submit " id="submit_btn" onclick="getAllAnswer()">Submit</button>
             </div>
         </form>
     </div>

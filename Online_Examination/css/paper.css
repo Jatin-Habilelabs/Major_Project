@@ -5,40 +5,49 @@
     margin: 0;
     font-family: "Roboto Slab", serif;
 }
+form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: flex-start;
+    background: antiquewhite;
+}
 #subName{
-    font-size: 35px;
+    font-size: 30px;
     /* font-weight: 300; */
 }
 #paperName {
     width: 500px;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 20px;
-    background-color:#c9daeb;
+    background-color:#e9d7e9;
     border: 0px solid;
     /* height: 20px;
     width: 160px; */
-    color: rgb(245, 241, 241);
+    color: rgb(37, 32, 32);
 }
 
 #paperName[type="text"] {
-    padding: 12px 20px;
+    padding: 3px 20px;
     margin: 8px 0;
 }
 
 .paper_name {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     gap: 3rem;
 
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
 }
 
 #paper_data {
     /* width: 100%; */
-    height: 99.4vh;
-    background-color: rgba(187, 187, 196, 0.87);
+    /* height: 99.4vh; */
+    background-color: rgba(221, 188, 216, 0.267);
+    display: flex;
+    justify-content: center;
 }
 
 .btn {
@@ -62,9 +71,10 @@
 .ques {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    align-items: baseline;
     margin-top: 20px;
+    gap: 1rem;
+    flex-direction: column;
 }
 
 .ans {
@@ -78,13 +88,16 @@
 .options {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin: 0 -52px;
     /* align-items: center; */
 }
 
 h4 {
     text-align: center;
-    color: rgb(250, 244, 244);
-    font-size: 25px;
+    color: rgb(230, 152, 152);
+    font-size: large;
 }
 
 
@@ -103,26 +116,25 @@ h4 {
 .inputOption {
     width: 250px;
     height: 30px;
-    margin: 5px -230px;
     border-radius: 5px;
     background-color: #c3c9ce;
-    color: white;
+    color: rgb(117, 93, 93);
     font-size: 20px;
+    margin: 0 -14px;
 }
 
 .radioOption {
     width: 150px;
     height: 20px;
-    margin: 2px 200px;
-
+   
 }
 
 .textQue {
-    width: 70rem;
-    height: 50px;
-    border-radius: 10px;
+    width: 42rem;
+    height: 45px;
+    border-radius: 5px;
     background-color: rgb(213, 224, 233);
-    color: antiquewhite;
+    color: rgb(26, 24, 22);
     font-size: 20px;
 }
 

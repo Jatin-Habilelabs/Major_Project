@@ -21,7 +21,7 @@ function addQuestions() {
   queDiv.setAttribute("class", "ques");
 
   const queHeading = document.createElement("h4"); // 1.1
-  queHeading.innerText = "Question :-";
+  queHeading.innerText = "Question";
 
   const queInput = document.createElement("input"); // 1.2
   queInput.setAttribute("class", "textQue");
@@ -35,7 +35,7 @@ function addQuestions() {
   ansDiv.setAttribute("class", "ans");
 
   const ansHeading = document.createElement("h4"); // 2.1
-  ansHeading.innerText = "Ans :-";
+  ansHeading.innerText = "Ans";
 
   const optionsDiv = document.createElement("div"); // 2.2
   optionsDiv.setAttribute("class", "options");
@@ -53,9 +53,10 @@ function addQuestions() {
       innerOptionDiv.setAttribute("class","innerOptionDiv")
 
       const optionRadio = document.createElement("input");
-      optionRadio.name = `radio${questionCount}-option${questionOptionCount}`;
+      optionRadio.name = `radio${questionCount}-option${questionCount}`;
       optionRadio.setAttribute("type", "radio");
       optionRadio.setAttribute("class", "radioOption");
+      optionRadio.value=`${questionOptionCount+1}`
 
 
       const optionInput = document.createElement("input");
@@ -99,7 +100,7 @@ function putData(e) {
       
 
       // All options of a question
-      const options = document.querySelectorAll(`.question${i} .options input`);
+      const options = document.querySelectorAll(`.question${i} .options input[type='text']`);
 
       if (options.length > 0) {
         let optionsArray = [];
@@ -129,9 +130,9 @@ function putData(e) {
     [subjectName.value]: allQuestions
   }
   localStorage.setItem("questionPaper",JSON.stringify(questionPaperAll));
-  // localStorage.setItem(subjectName.value,stringifiedData)
 
-  document.getElementById("form").reset();
+
+  // document.getElementById("form").reset();
 }
 
 
@@ -145,4 +146,30 @@ function checkValidation(dataLength) {
     }
   }
   return true;
+}
+
+
+
+function getAllAnswer() {
+  let answers={}
+  let questionAnswer = []
+
+    for (var i = 0; i < questionCount; i++) {
+
+        var ele = document.getElementsByName(`radio${i+1}-option${i+1}`);
+
+      for(var j=0;j<ele.length;j++){
+        if (ele[j].checked) {
+            questionAnswer.push(ele[j].value);
+        }
+      }
+    }
+ 
+   answers={
+    ...answers,
+    [paperName.value]: questionAnswer
+   }
+    
+    // console.log(questionAnswer);
+    localStorage.setItem('Answer',JSON.stringify(answers))
 }

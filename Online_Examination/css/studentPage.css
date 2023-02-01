@@ -1,7 +1,7 @@
 .paper {
     display: flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction:column;
     justify-content: space-around;
     width: 100%;
     padding-top: 90px;
@@ -20,4 +20,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     color: antiquewhite;
+    
+}
+p{
+    font-size: 30px;
 }

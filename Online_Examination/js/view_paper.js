@@ -1,13 +1,14 @@
 let getData = JSON.parse(localStorage.getItem('tempPaper'))
 let PaperLength = (getData[0][Object.keys(getData[0])[0]].length);
-console.log(PaperLength);
+// console.log(PaperLength);
 
 // for(var i=0;i<PaperLength;i++){
-    var paperObj = getData[0][Object.keys(getData[0])]
+var paperObj = getData[0][Object.keys(getData[0])]
 let optionObj = paperObj[0].options
-var  optionLen =  optionObj.length
-let paperName=document.getElementById('paperName');
-paperName.value= Object.keys(getData[0])
+var optionLen = optionObj.length
+
+let paperName = document.getElementById('paperName');
+paperName.innerText = Object.keys(getData[0])
 // console.log(optionObj);
 
 showData(paperObj.length)
@@ -23,9 +24,9 @@ showData(paperObj.length)
 function showData(FormLength) {
 
 
-    let questionPaper=document.getElementById('question_paper')
+    let questionPaper = document.getElementById('question_paper')
     for (let questionCount = 0; questionCount < FormLength; questionCount++) {
-  
+
         // let variable = getData[0][Object.keys(getData[questionCount])[questionCount]];
         // console.log(variable[0]);
 
@@ -57,10 +58,13 @@ function showData(FormLength) {
             const optionDiv = document.createElement('div');
             const radioButton = document.createElement('input');
 
+
+
+
             radioButton.type = 'radio';
             radioButton.setAttribute("name", `radio${questionCount}-question${questionCount}`)
             radioButton.setAttribute("id", `question${questionCount}-option${i}`);
-            radioButton.setAttribute("value", paperObj[questionCount].options[i])
+            radioButton.setAttribute("value", i + 1)
 
             const labelButton = document.createElement('label');
             labelButton.htmlFor = `question${questionCount}-option${i}`;
@@ -69,6 +73,7 @@ function showData(FormLength) {
 
             optionDiv.append(radioButton, labelButton);
             optionsDiv.append(optionDiv)
+
         }
 
         queWrapper.append(queDiv, optionsDiv);
@@ -78,19 +83,59 @@ function showData(FormLength) {
 }
 
 // // var formLengthAll=document.getElementById('form').elements;
-let arrAnswer=[]
+let arrAnswer = []
 
-function getAllData(){
-  
-  for(var i=0;i<PaperLength;i++){
-//     if(formLengthAll[i].){}
-var ele = document.getElementsByName(`radio${i}-question${i}`); 
- for(var j = 0; j < ele.length; j++) {
-    if(ele[j].checked)
-    arrAnswer.push(ele[j].value);
+function getAllData() {
+
+    for (var i = 0; i < PaperLength; i++) {
+
+        var ele = document.getElementsByName(`radio${i}-question${i}`);
+
+        for (var j = 0; j < ele.length; j++) {
+            if (ele[j].checked) {
+                arrAnswer.push(ele[j].value);
+            }
+
+        }
+    }
+    console.log("student",arrAnswer);
+    
+    checkQuestionAnswer();
 }
-console.log(arrAnswer);
-// // console.log(formLengthAll[i].value);
-// console.log(document.querySelector('input[type="radio"]:checked').val);
-  }
+
+function checkQuestionAnswer() {
+    let studentResultObj = {}
+    const checkAnswer = JSON.parse(localStorage.getItem('Answer'));
+    const student = JSON.parse(localStorage.getItem('RESULT'));
+    const AnsweObjLen = Object.keys(checkAnswer).length;
+    
+    let paperNameAns = Object.keys(checkAnswer)
+    
+    const paperOptionAns = checkAnswer[paperNameAns]
+    console.log("teacher",paperOptionAns);
+    
+    for (var i = 0; i < AnsweObjLen; i++) {
+        let totalMarks = 0;
+
+        if (paperName.value== paperNameAns[i]) {
+
+            for (var j = 0; j < PaperLength; j++) {
+                if (arrAnswer[j] == paperOptionAns[j]) {
+                    // console.log(arrAnswer[j] , paperOptionAns[j]);
+                    totalMarks++;
+                }
+            }
+        }
+        studentResultObj = {
+           [paperNameAns[i]]: totalMarks*2
+        }
+    }
+
+    student.push(studentResultObj)
+    console.log(student);
+    localStorage.setItem("RESULT",JSON.stringify(student));
+    alert('Thank You')
+    window.location = "studentPage.html"
 }
+
+

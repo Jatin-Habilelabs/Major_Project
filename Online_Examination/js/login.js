@@ -45,7 +45,13 @@ var ResultOutput = checkData.filter(function (inputValue) {
     
     }
     else{
-        window.location.href = './view_paper.html';
+        let studentResultArr = [
+            formLength.email.value 
+        ]
+        
+        localStorage.setItem("RESULT", JSON.stringify(studentResultArr))
+
+        window.location.href = './studentPage.html';
         return (inputValue.email == formLength.email.value && inputValue.password == formLength.pass.value)
         
     }
