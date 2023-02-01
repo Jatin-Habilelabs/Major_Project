@@ -49,18 +49,29 @@ function addQuestions() {
 
   optionButton.onclick = function () {
     if (questionOptionCount < 4) {
+      const innerOptionDiv=document.createElement('div')
+      innerOptionDiv.setAttribute("class","innerOptionDiv")
+
+      const optionRadio = document.createElement("input");
+      optionRadio.name = `radio${questionCount}-option${questionOptionCount}`;
+      optionRadio.setAttribute("type", "radio");
+      optionRadio.setAttribute("class", "radioOption");
+
+
       const optionInput = document.createElement("input");
       optionInput.name = `question${questionCount}-option${questionOptionCount}`;
       optionInput.setAttribute("type", "text");
       optionInput.setAttribute("class", "inputOption");
 
-      optionsDiv.appendChild(optionInput);
-
+     
+      innerOptionDiv.append(optionRadio,optionInput);
       questionOptionCount++;
       console.log(questionOptionCount);
+      optionsDiv.append(innerOptionDiv);
     }
 
   };
+
 
   queWrapper.append(queDiv, ansDiv, optionsDiv);
 
@@ -99,6 +110,7 @@ function putData(e) {
 
         eachQuestionData = {
           ...eachQuestionData,
+          
           "options" : optionsArray
         };
         // eachQuestionData["options"] = optionsArray;

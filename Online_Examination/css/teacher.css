@@ -54,7 +54,16 @@ background-size: cover;
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.add_paper:hover{
+    width: 300px;
+    height: 300px;
+    transition: 1s;
+}
+.view_paper:hover{
+    width: 300px;
+    height: 300px;
+    transition: 1s;
+}
 .paper_part_1 {
     text-align: center;
 }

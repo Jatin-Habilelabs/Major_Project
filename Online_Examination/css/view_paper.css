@@ -5,6 +5,10 @@
     margin: 0;
     font-family: "Roboto Slab", serif;
 }
+#subName{
+    font-size: 45;
+    font-weight: 400;
+}
 #paperName {
     width: 500px;
     height: 40px;

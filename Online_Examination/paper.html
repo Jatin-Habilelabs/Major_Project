@@ -15,11 +15,13 @@
         
         <form method="post" id="form" onsubmit="putData(event)">
             <div class="paper_name">
-                <label for="paperName">Subject Name</label>
+                <label for="paperName" id="subName">Subject Name</label>
                 <input type="text" name="paperName" id="paperName">
             </div>
             
-            <div id="question_paper"></div>
+            <div id="question_paper">
+                
+            </div>
             <div class="btn">
                 <button type="button" id="add_question" onclick="addQuestions()">
                     Add Question
