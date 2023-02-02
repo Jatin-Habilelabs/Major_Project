@@ -5,12 +5,18 @@
     margin: 0;
     font-family: "Roboto Slab", serif;
 }
+body{
+    background-color:black;
+}
 form{
     display: flex;
     flex-direction: column;
     width: 50%;
     align-items: flex-start;
-    background: antiquewhite;
+    background: rgb(186, 169, 221);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 40px 0;
 }
 #subName{
     font-size: 30px;
@@ -21,7 +27,7 @@ form{
     height: 40px;
     border-radius: 5px;
     font-size: 20px;
-    background-color:#e9d7e9;
+
     border: 0px solid;
     /* height: 20px;
     width: 160px; */
@@ -31,21 +37,12 @@ form{
 #paperName[type="text"] {
     padding: 3px 20px;
     margin: 8px 0;
+    background-color: rgb(213, 224, 233);
 }
 
-.paper_name {
-    /* display: flex;
-    flex-direction: row;
-    gap: 3rem;
 
-    align-items: center;
-    justify-content: center; */
-}
 
 #paper_data {
-    /* width: 100%; */
-    /* height: 99.4vh; */
-    background-color: rgba(221, 188, 216, 0.267);
     display: flex;
     justify-content: center;
 }
@@ -91,12 +88,11 @@ form{
     justify-content: flex-start;
     gap: 1rem;
     margin: 0 -52px;
-    /* align-items: center; */
 }
 
 h4 {
     text-align: center;
-    color: rgb(230, 152, 152);
+    color: rgb(0, 0, 0);
     font-size: large;
 }
 
@@ -118,7 +114,7 @@ h4 {
     height: 30px;
     border-radius: 5px;
     background-color: #c3c9ce;
-    color: rgb(117, 93, 93);
+    color: black;
     font-size: 20px;
     margin: 0 -14px;
 }

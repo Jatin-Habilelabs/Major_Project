@@ -1,6 +1,4 @@
 
-
-
 const questionPaper = document.getElementById("question_paper");
 
 let subjectName = document.getElementById('paperName');
@@ -10,6 +8,8 @@ let questionCount = 0;
 let questionPaperAll = {
 
 }
+
+// ================== Add Question Tag for adding question by teacher ======================
 
 function addQuestions() {
   let questionOptionCount = 0;
@@ -47,16 +47,18 @@ function addQuestions() {
 
   ansDiv.append(ansHeading, optionButton);
 
+// =========== Adding option on click add option =====================================
+
   optionButton.onclick = function () {
     if (questionOptionCount < 4) {
-      const innerOptionDiv=document.createElement('div')
-      innerOptionDiv.setAttribute("class","innerOptionDiv")
+      const innerOptionDiv = document.createElement('div')
+      innerOptionDiv.setAttribute("class", "innerOptionDiv")
 
       const optionRadio = document.createElement("input");
       optionRadio.name = `radio${questionCount}-option${questionCount}`;
       optionRadio.setAttribute("type", "radio");
       optionRadio.setAttribute("class", "radioOption");
-      optionRadio.value=`${questionOptionCount+1}`
+      optionRadio.value = `${questionOptionCount + 1}`
 
 
       const optionInput = document.createElement("input");
@@ -64,8 +66,8 @@ function addQuestions() {
       optionInput.setAttribute("type", "text");
       optionInput.setAttribute("class", "inputOption");
 
-     
-      innerOptionDiv.append(optionRadio,optionInput);
+
+      innerOptionDiv.append(optionRadio, optionInput);
       questionOptionCount++;
       console.log(questionOptionCount);
       optionsDiv.append(innerOptionDiv);
@@ -80,6 +82,8 @@ function addQuestions() {
   questionCount++;
 }
 
+// ====================  
+
 function putData(e) {
   e.preventDefault();
   console.log("Form Submittted....");
@@ -91,15 +95,16 @@ function putData(e) {
   if (valid) {
     for (let i = 0; i < questionCount; i++) {
 
-      // fetching question Input Value
+      // =========================  fetching question Input Value =======================================
       const questionInput = document.querySelector(`.question${i} .ques input`);
       eachQuestionData = {
         ...eachQuestionData,
-        "question" : questionInput.value
+        "question": questionInput.value
       };
-      
 
-      // All options of a question
+
+      // =================== All options of a question  ================================
+
       const options = document.querySelectorAll(`.question${i} .options input[type='text']`);
 
       if (options.length > 0) {
@@ -111,31 +116,28 @@ function putData(e) {
 
         eachQuestionData = {
           ...eachQuestionData,
-          
-          "options" : optionsArray
+
+          "options": optionsArray
         };
-        // eachQuestionData["options"] = optionsArray;
+      
       }
 
       allQuestions.push(eachQuestionData);
     }
-  
+
   }
 
-  // console.log(allQuestions);
-
-  // const stringifiedData = JSON.stringify(allQuestions);
-  questionPaperAll={
+  questionPaperAll = {
     ...questionPaperAll,
     [subjectName.value]: allQuestions
   }
-  localStorage.setItem("questionPaper",JSON.stringify(questionPaperAll));
+  localStorage.setItem("questionPaper", JSON.stringify(questionPaperAll));
 
 
-  // document.getElementById("form").reset();
+  document.getElementById("form").reset();
 }
 
-
+// ====================== validation for paper =================================
 function checkValidation(dataLength) {
   for (var i = 0; i < dataLength.length; i++) {
     if (dataLength[i].tagName != "BUTTON") {
@@ -148,28 +150,26 @@ function checkValidation(dataLength) {
   return true;
 }
 
-
+// ============================ store all correct answer======================================
 
 function getAllAnswer() {
-  let answers={}
+  let answers = {}
   let questionAnswer = []
 
-    for (var i = 0; i < questionCount; i++) {
+  for (var i = 0; i < questionCount; i++) {
 
-        var ele = document.getElementsByName(`radio${i+1}-option${i+1}`);
+    var ele = document.getElementsByName(`radio${i + 1}-option${i + 1}`);
 
-      for(var j=0;j<ele.length;j++){
-        if (ele[j].checked) {
-            questionAnswer.push(ele[j].value);
-        }
+    for (var j = 0; j < ele.length; j++) {
+      if (ele[j].checked) {
+        questionAnswer.push(ele[j].value);
       }
     }
- 
-   answers={
+  }
+
+  answers = {
     ...answers,
     [paperName.value]: questionAnswer
-   }
-    
-    // console.log(questionAnswer);
-    localStorage.setItem('Answer',JSON.stringify(answers))
+  }
+  localStorage.setItem('Answer', JSON.stringify(answers))
 }

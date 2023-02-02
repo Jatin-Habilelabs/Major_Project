@@ -5,10 +5,12 @@
     margin: 0;
     font-family: "Roboto Slab", serif;
 }
-#subName{
+
+#subName {
     font-size: 30px;
     font-weight: 400;
 }
+
 #paperName {
     width: 500px;
     height: 60px;
@@ -27,8 +29,9 @@
     justify-content: center;
 }
 
-#paper_data {
+body{
     background-color: rgb(219, 203, 203);
+    padding: 15px;
 }
 
 .btn {
@@ -36,26 +39,30 @@
     align-items: center;
     justify-content: center;
 }
+
 #submit_btn {
     width: 150px;
     height: 50px;
     border-radius: 25px;
 }
 
-.ques{
+.ques {
     display: flex;
     width: 100%;
     height: 20px;
 }
-.options{
+
+.options {
     display: flex;
     margin: 30px 60px;
     flex-direction: column;
     gap: .5rem;
 }
-label{
+
+label {
     padding-left: 20px;
 }
-p{
+
+p {
     padding-left: 20px;
 }

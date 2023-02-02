@@ -18,20 +18,28 @@ $(document).ready(function () {
     })
 
 })
+// ================== put Register Data in local Storage====================
 
 
-var arr = [];
 function getOutput(e) {
     e.preventDefault();
     var register_length = document.getElementById('form').elements;
 
     valid = ValidFun(register_length)
-
+    let arr ;
+    if(!localStorage.getItem('StoreData')){
+        arr=[];
+    }
+    else{
+        arr=JSON.parse(localStorage.getItem('StoreData'))
+    }
     let allData = {}
     if (valid) {
         for (var i = 0; i < register_length.length; i++) {
             if (register_length[i].tagName != 'BUTTON' && register_length[i].type != 'checkbox') {
                 let element = register_length[i].value;
+                
+            //   =================== store data =====================
 
                 if (register_length[i].name != 'teacher_data') {
                     allData = {
@@ -65,6 +73,7 @@ function getOutput(e) {
 
 
 // =====================CHECK CONDITIONS FOR VALIDATION================
+
 function ValidFun(register_length) {
     let checkMail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
@@ -106,7 +115,7 @@ function ValidFun(register_length) {
 }
 
 
-// ===================CODE FOR EYE DISABLED======================
+// ===================CODE FOR EYE ENABLE & DISABLED======================
 
 let passInput = document.getElementById('password');
 
@@ -125,18 +134,4 @@ $(document).ready(function () {
     });
 });
 
-let securityInput = document.getElementById('security')
-$(document).ready(function () {
-    $('#eye_security').click(function () {
-        if (securityInput.type === 'password') {
-            securityInput.type = 'text';
-            $('#eye_security').removeClass('bx bx-show');
-            $('#eye_security').addClass('bx bx-low-vision');
-        } else {
-            securityInput.type = 'password';
-            $('#eye_security').removeClass('bx bx-low-vision');
-            $('#eye_security').addClass('bx bx-show');
-        }
-    });
-});
 
