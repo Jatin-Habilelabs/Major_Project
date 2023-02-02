@@ -37,33 +37,26 @@ function Result(e) {
 
     let checkData = JSON.parse(localStorage.getItem('StoreData'));
     var ResultOutput = checkData.filter(function (inputValue) {
-
-        if (inputValue.teacherId != 'not teacher') {
-            window.location.href = './teacher.html';
-            return (inputValue.email == formLength.email.value && inputValue.password == formLength.pass.value)
-
-        }
-        else {
-            let studentResultArr = [
-                formLength.email.value
-            ]
-
-            localStorage.setItem("RESULT", JSON.stringify(studentResultArr))
-
-            window.location.href = './studentPage.html';
-            return (inputValue.email == formLength.email.value && inputValue.password == formLength.pass.value)
-
-        }
-
+        return (inputValue.email == formLength.email.value && inputValue.password == formLength.pass.value &&
+            inputValue.teacherId)
 
     });
+
+
     if (ResultOutput.length == 0) {
-        alert('Account not found , Register First')
+        return alert('Account not found , Register First')
+
     }
-    else {
-      
-        alert('Login Successfully');
-        document.getElementById('login_form').reset();
+    else {    
+        document.getElementById('login_Form').reset();
+        if (ResultOutput[0]['teacherId'] == 'not teacher') {
+            window.location.href = './studentPage.html';
+        }
+        else {
+            window.location.href = './teacher.html';
+        }
+        return alert('Login Successfully');
+       
     }
 }
 
