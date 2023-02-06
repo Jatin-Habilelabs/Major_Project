@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register_Page</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/Home/Style/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
@@ -62,27 +62,32 @@
                     </div>
 
 
-                    <div class="form_box" id="radio_input">
-                        <div>
-                            <input type="checkbox" class="radio" id="teacher" value="teacher">
+                    <div class="form_box">
+                        <div id="radio_input">
+                            <div>
+                                <input type="radio" class="radio_user" id="teacher" value="teacher" name="user">
+                                <label for="teacher">Teacher</label>
+                            </div>
 
-                            <label for="teacher">Teacher</label>
+                            <input type="text" placeholder="USER_ID" class="user_id" id="user_data" name="user_data">
+
+                            <div>
+                                <input type="radio" class="radio_user" id="student" value="student" name="user">
+                                <label for="student">Student</label>
+                            </div>
                         </div>
-                        <input type="text" placeholder="Teacher_ID" class="teacher_id" id="teacher_data"
-                            name="teacher_data">
-
-
                     </div>
 
-                    <div class="">
-
+                    <div>
                         <button type="submit">Sign Up</button>
+                        <button type="submit" class="button_sign_in" onclick="window.location.href='./login.html';"
+                            style="display: none;">Sign In</button>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="/Home/Script/registerScript.js"></script>
 
 </body>
 

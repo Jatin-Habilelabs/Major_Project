@@ -21,7 +21,7 @@ function showAllPaper() {
         let PaperDiv = document.createElement("div");
         PaperDiv.className = "Subjectfull";
         PaperDiv.setAttribute("id", `subpaper${i}`);
-        PaperDiv.innerHTML = `<img id="img${i}" onclick="nextpage(event)" src="/assest/book4.jpg" height="100%"  alt="">`;
+        PaperDiv.innerHTML = `<img id="img${i}" onclick="nextpage(event)" src="/assest/book.jpg" height="100%"  alt="">`;
 
 
         let paperNamePara = document.createElement("p")
@@ -59,7 +59,7 @@ function nextpage(e) {
             tempArr.push(tempPaper)
 
             localStorage.setItem('tempPaper', JSON.stringify(tempArr))
-            window.location.href = 'view_paper.html';
+            window.location.href = '/Student/ViewPage/viewPaper.html';
         }
     }
 

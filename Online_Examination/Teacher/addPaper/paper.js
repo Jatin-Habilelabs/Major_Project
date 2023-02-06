@@ -47,7 +47,7 @@ function addQuestions() {
 
   ansDiv.append(ansHeading, optionButton);
 
-// =========== Adding option on click add option =====================================
+  // =========== Adding option on click add option =====================================
 
   optionButton.onclick = function () {
     if (questionOptionCount < 4) {
@@ -83,11 +83,11 @@ function addQuestions() {
 }
 
 // ====================  
+let checkLength = document.getElementById('form').elements
 
 function putData(e) {
   e.preventDefault();
-  console.log("Form Submittted....");
-  let checkLength = document.getElementById('form').elements
+
   let allQuestions = [];
 
   valid = checkValidation(checkLength);
@@ -119,22 +119,24 @@ function putData(e) {
 
           "options": optionsArray
         };
-      
+
       }
 
       allQuestions.push(eachQuestionData);
     }
 
+
+
+    questionPaperAll = {
+      ...questionPaperAll,
+      [subjectName.value]: allQuestions
+    }
+    localStorage.setItem("questionPaper", JSON.stringify(questionPaperAll));
+
+
+    document.getElementById("form").reset();
   }
 
-  questionPaperAll = {
-    ...questionPaperAll,
-    [subjectName.value]: allQuestions
-  }
-  localStorage.setItem("questionPaper", JSON.stringify(questionPaperAll));
-
-
-  document.getElementById("form").reset();
 }
 
 // ====================== validation for paper =================================
@@ -145,6 +147,11 @@ function checkValidation(dataLength) {
         alert("Please fill the blank");
         return false;
       }
+      if (questionCount < 1) {
+        alert('Please add questions');
+        return false;
+      }
+
     }
   }
   return true;
@@ -153,23 +160,27 @@ function checkValidation(dataLength) {
 // ============================ store all correct answer======================================
 
 function getAllAnswer() {
-  let answers = {}
-  let questionAnswer = []
 
-  for (var i = 0; i < questionCount; i++) {
+    let answers = {}
+    let questionAnswer = []
 
-    var ele = document.getElementsByName(`radio${i + 1}-option${i + 1}`);
+    for (var i = 0; i < questionCount; i++) {
 
-    for (var j = 0; j < ele.length; j++) {
-      if (ele[j].checked) {
-        questionAnswer.push(ele[j].value);
+      var ele = document.getElementsByName(`radio${i + 1}-option${i + 1}`);
+
+      for (var j = 0; j < ele.length; j++) {
+        if (ele[j].checked) {
+          questionAnswer.push(ele[j].value);
+        }
       }
     }
-  }
 
-  answers = {
-    ...answers,
-    [paperName.value]: questionAnswer
-  }
-  localStorage.setItem('Answer', JSON.stringify(answers))
+    answers = {
+      ...answers,
+      [paperName.value]: questionAnswer
+    }
+
+    localStorage.setItem('Answer', JSON.stringify(answers))
+  
+
 }

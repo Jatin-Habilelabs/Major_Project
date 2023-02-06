@@ -30,7 +30,7 @@
 }
 
 body{
-    background-color: rgb(219, 203, 203);
+    background-color: rgba(202, 208, 226, 0.377);
     padding: 15px;
 }
 
@@ -38,6 +38,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 25px;
 }
 
 #submit_btn {
@@ -65,4 +66,13 @@ label {
 
 p {
     padding-left: 20px;
+}
+
+p::first-letter {
+  
+    text-transform: capitalize;
+}
+#question_paper .qw{
+    padding: 25px 25px 0 25px;
+
 }

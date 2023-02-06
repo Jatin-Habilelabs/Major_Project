@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    $('#button_sign-in').click(function () {
+    $('.button_sign_in').click(function () {
         window.location.href = './login.html';
 
     })
-    $('#button_sign-up').click(function () {
+    $('.button_sign_up').click(function () {
         window.location.href = './register.html';
     })
 })
@@ -40,6 +40,7 @@ function Result(e) {
         return (inputValue.email == formLength.email.value && inputValue.password == formLength.pass.value &&
             inputValue.teacherId)
 
+            
     });
 
 
@@ -50,10 +51,10 @@ function Result(e) {
     else {    
         document.getElementById('login_Form').reset();
         if (ResultOutput[0]['teacherId'] == 'not teacher') {
-            window.location.href = './studentPage.html';
+            window.location.href ='/Student/StudentPage/studentPage.html';
         }
         else {
-            window.location.href = './teacher.html';
+            window.location.href = '/Teacher/teacherLogin/teacher.html';
         }
         return alert('Login Successfully');
        

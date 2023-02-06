@@ -114,7 +114,18 @@ i {
 .form_box {
     padding-bottom: 25px;
     width: 500px;
-
+}
+#radio_input{
+    padding-bottom: 25px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+}
+#user_data{
+    padding: 6px 4px;
+    display: none;
 }
 
 .form_data {
@@ -152,8 +163,9 @@ button {
 .eye {
     color: black;
     position: absolute;
-    transform: translate(-28px, 17px);
+    transform: translate(-40px, 17px);
     font-size: 24px;
+    cursor: pointer;
 }
 
 /* =====================REGISTER CSS ====================================== */
@@ -173,17 +185,29 @@ button {
 
 }
 
-#radio_input {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 2.5rem;
-}
 
-.teacher_id {
+.teacher_id,.student_id {
     width: 130px;
     height: 35px;
     border-radius: 2px;
     padding: 0 20px 0 10px;
     display: none;
+}
+
+
+/* ==================responsive================ */
+
+@media (max-width: 870px){
+    .login_image{
+        display: none;
+    }
+    #login_Form{
+        width: 100%;
+    }
+    #form{
+        width: 100%;
+    }
+    .button_sign_in, .button_sign_up{
+        display: initial !important;
+    }
 }

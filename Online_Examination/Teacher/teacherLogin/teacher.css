@@ -9,16 +9,15 @@
 h1 {
     width: 100%;
     height: 55px;
-    color: antiquewhite;
+    color:black;
     text-align: center;
+    padding-top: 20px;
+    font-weight: 500;
+    font-size: 50px;
 }
 
 .teacher_data {
-
-    background-image: linear-gradient(rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.534)), url('/assest/wallpaperflare.com_wallpaper.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: rgba(130, 150, 172, 0.404);
     width: 100%;
     height: 100vh;
 
@@ -37,9 +36,9 @@ h1 {
     width: 250px;
     height: 250px;
     border-radius: 20px;
-    border: 1px solid wheat;
+    border: 4px solid #4e6981;
     margin-bottom: 30px;
-    background-image: url('/assest/book3.jpg');
+    background-image: url('/assest/upload.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -51,9 +50,9 @@ h1 {
     width: 250px;
     height: 250px;
     border-radius: 20px;
-    border: 1px solid wheat;
+    border: 4px solid #4e6981;
     margin-bottom: 30px;
-    background-image: url('/assest/book4.jpg');
+    background-image: url('/assest/viewPaper.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -77,5 +76,5 @@ h1 {
 a {
     padding: 20px;
     text-decoration: none;
-    color: antiquewhite;
+    color:black;
 }

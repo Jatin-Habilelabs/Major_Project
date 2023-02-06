@@ -20,13 +20,13 @@ function showData(FormLength) {
     for (let questionCount = 0; questionCount < FormLength; questionCount++) {
 
         const queWrapper = document.createElement("div");  //  make div for questions
-        queWrapper.setAttribute("class", `question${questionCount}`);
+        queWrapper.setAttribute("class", `question${questionCount} qw`);
 
         const queDiv = document.createElement("div"); //1
         queDiv.setAttribute("class", "ques");
 
         const queHeading = document.createElement("h4"); // 1.1    //question heading
-        queHeading.innerText = "Question :-";
+        queHeading.innerText = "Question :";
 
 
         const paraQue = document.createElement('p');   // question para or complete ques
@@ -63,8 +63,10 @@ function showData(FormLength) {
         }
 
         queWrapper.append(queDiv, optionsDiv);
+        queWrapper.append(document.createElement('hr'))
 
         questionPaper.appendChild(queWrapper);
+        
     }
 }
 

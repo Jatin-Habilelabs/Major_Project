@@ -1,22 +1,25 @@
 $(document).ready(function () {
-    $('#button_sign-in').click(function () {
+    $('#button_sign_in').click(function () {
         window.location.href = './login.html';
 
     })
-    $('#button_sign-up').click(function () {
+    $('#button_sign_up').click(function () {
         window.location.href = './register.html';
     })
 
-    $('#teacher').click(function () {
-        if ($('#teacher').is(":checked")) {
-            $('#teacher_data').show()
-        }
-        else {
-            $('#teacher_data').hide()
-        }
+  $('.radio_user').click(function(){
+    var radioValue = $("input[name='user']:checked")
+    if(radioValue){
+        $('#user_data').show()
 
-    })
 
+    }
+    else{
+        $('#user_data').hide()
+
+    }
+  })
+   
 })
 // ================== put Register Data in local Storage====================
 
@@ -34,14 +37,15 @@ function getOutput(e) {
         arr=JSON.parse(localStorage.getItem('StoreData'))
     }
     let allData = {}
+    // valid=true
     if (valid) {
         for (var i = 0; i < register_length.length; i++) {
-            if (register_length[i].tagName != 'BUTTON' && register_length[i].type != 'checkbox') {
+            if (register_length[i].tagName != 'BUTTON' && register_length[i].type != 'radio') {
                 let element = register_length[i].value;
                 
             //   =================== store data =====================
 
-                if (register_length[i].name != 'teacher_data') {
+                if (register_length[i].name != 'user_data') {
                     allData = {
                         ...allData,
                         [register_length[i].name]: element
@@ -49,12 +53,14 @@ function getOutput(e) {
                 }
 
                 if (register_length.teacher.checked) {
+                    console.log("enter");
                     allData = {
                         ...allData,
-                        "teacherId": register_length.teacher_data.value
+                        "teacherId": register_length.user_data.value
                     };
                 }
                 if (!register_length.teacher.checked) {
+                  
                     allData = {
                         ...allData,
                         "teacherId": "not teacher"
@@ -81,14 +87,14 @@ function ValidFun(register_length) {
 
     for (var i = 0; i < register_length.length; i++) {
 
-        if (register_length[i].tagName != 'BUTTON' && register_length[i].type != 'checkbox') {
+        if (register_length[i].tagName != 'BUTTON' && register_length[i].type != 'radio') {
 
-            if (register_length.teacher.checked) {
+            // if (register_length.teacher.checked) {
                 if (register_length[i].value == '') {
                     alert('Please fill the blank')
                     return false;
                 }
-            }
+            // }
         }
 
     }
@@ -107,7 +113,7 @@ function ValidFun(register_length) {
     }
     if (!register_length.password.value.match(/[$&+,:;=?@#|'<>.-^*()%!]/) || !register_length.password.value.match(/[0-9]/) || !register_length.password.value.match(/[a-z]/) ||
         register_length.password.value.length < 8 || !register_length.password.value.match(/[A-Z]/)) {
-        console.log(register_length.password.value.length);
+ 
         alert('Make a Strong Password');
         return false;
     }
