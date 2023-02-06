@@ -76,3 +76,8 @@ p::first-letter {
     padding: 25px 25px 0 25px;
 
 }
+.hr{
+    border: 2px solid rgba(37, 61, 128, 0.377);
+    border-radius:4px ;
+    width: 100%;
+}
