@@ -121,20 +121,25 @@ function putData(e) {
         };
 
       }
-
+    
       allQuestions.push(eachQuestionData);
     }
 
 
+    let getallans = getAllAnswer();
 
-    questionPaperAll = {
-      ...questionPaperAll,
-      [subjectName.value]: allQuestions
+    if (getallans) {
+      questionPaperAll = {
+        ...questionPaperAll,
+        [subjectName.value]: allQuestions
+      }
+  
+  
+      localStorage.setItem("questionPaper", JSON.stringify(questionPaperAll));
+  
+  
+      document.getElementById("form").reset();
     }
-    localStorage.setItem("questionPaper", JSON.stringify(questionPaperAll));
-
-
-    document.getElementById("form").reset();
   }
 
 }
@@ -163,16 +168,21 @@ function getAllAnswer() {
 
     let answers = {}
     let questionAnswer = []
-
+    let countOptionAnswer=0;
     for (var i = 0; i < questionCount; i++) {
 
       var ele = document.getElementsByName(`radio${i + 1}-option${i + 1}`);
-
       for (var j = 0; j < ele.length; j++) {
         if (ele[j].checked) {
+          countOptionAnswer++
           questionAnswer.push(ele[j].value);
         }
       }
+    }
+
+    if(countOptionAnswer!=questionCount){
+      alert("Please select option for correct answer")   
+        return false;
     }
 
     answers = {
@@ -181,6 +191,6 @@ function getAllAnswer() {
     }
 
     localStorage.setItem('Answer', JSON.stringify(answers))
-  
+    return true
 
 }
