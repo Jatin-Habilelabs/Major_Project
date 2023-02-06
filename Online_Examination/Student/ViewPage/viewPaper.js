@@ -63,7 +63,10 @@ function showData(FormLength) {
         }
 
         queWrapper.append(queDiv, optionsDiv);
-        queWrapper.append(document.createElement('hr'))
+        if(questionCount<FormLength-1){
+            queWrapper.append(document.createElement('hr'))
+        }
+   
 
         questionPaper.appendChild(queWrapper);
         
@@ -120,11 +123,11 @@ function checkQuestionAnswer() {
         }
     }
     console.log(studentResultObj);
-    student.push(studentResultObj)
-    console.log(student);
+    student.push(studentResultObj);
+    // console.log(student);
     localStorage.setItem("RESULT", JSON.stringify(student));
     alert('Thank You')
-    window.location = "studentPage.html"
+    window.location = "/Student/StudentPage/studentPage.html"
 }
 
 

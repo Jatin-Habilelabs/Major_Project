@@ -39,8 +39,6 @@ function Result(e) {
     var ResultOutput = checkData.filter(function (inputValue) {
         return (inputValue.email == formLength.email.value && inputValue.password == formLength.pass.value &&
             inputValue.teacherId)
-
-            
     });
 
 
@@ -51,6 +49,12 @@ function Result(e) {
     else {    
         document.getElementById('login_Form').reset();
         if (ResultOutput[0]['teacherId'] == 'not teacher') {
+            a = [{
+                'Id':ResultOutput[0]['email']
+            }]
+
+            localStorage.setItem("RESULT", JSON.stringify(a));
+
             window.location.href ='/Student/StudentPage/studentPage.html';
         }
         else {

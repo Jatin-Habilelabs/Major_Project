@@ -66,3 +66,4 @@ function nextpage(e) {
 }
 variable.onload = showAllPaper()
 
+
